@@ -9,23 +9,22 @@ import java.time.LocalDateTime;
 
 public class EventDTO {
     private long Id;
-
-    @NotBlank
     private String title;
-
-    @NotNull
     private String description;
-
-    @NotNull
     private String place;
-
-    @NotNull
-    private LocalDateTime date_time;
-
-    @Min(1)
-    private int capacity;
+    private LocalDateTime createdAt;
+    private Integer capacity;
 
     public EventDTO() {
+    }
+
+    public EventDTO(long id, String title, String description, String place, LocalDateTime createdAt, Integer capacity) {
+        Id = id;
+        this.title = title;
+        this.description = description;
+        this.place = place;
+        this.createdAt = createdAt;
+        this.capacity = capacity;
     }
 
     public long getId() {
@@ -60,19 +59,19 @@ public class EventDTO {
         this.place = place;
     }
 
-    public LocalDateTime getDate_time() {
-        return date_time;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate_time(LocalDateTime date_time) {
-        this.date_time = date_time;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 }

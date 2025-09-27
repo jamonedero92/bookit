@@ -21,7 +21,7 @@ public class Event {
     private String place;
 
     @Column(nullable = false)
-    private LocalDateTime date_time;
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
     private int capacity;
@@ -32,12 +32,12 @@ public class Event {
     public Event() {
     }
 
-    public Event(long id, String title, String description, String place, LocalDateTime date_time, int capacity) {
+    public Event(long id, String title, String description, String place, LocalDateTime createdAt, int capacity) {
         Id = id;
         this.title = title;
         this.description = description;
         this.place = place;
-        this.date_time = date_time;
+        this.createdAt = createdAt;
         this.capacity = capacity;
     }
 
@@ -73,12 +73,12 @@ public class Event {
         this.place = place;
     }
 
-    public LocalDateTime getDate_time() {
-        return date_time;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate_time(LocalDateTime date_time) {
-        this.date_time = date_time;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public int getCapacity() {

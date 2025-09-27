@@ -23,7 +23,7 @@ public class EventService {
         dto.setTitle(e.getTitle());
         dto.setDescription(e.getDescription());
         dto.setPlace(e.getPlace());
-        dto.setDate_time(e.getDate_time());
+        dto.setCreatedAt(e.getCreatedAt());
         dto.setCapacity(e.getCapacity());
         return dto;
     }
@@ -38,7 +38,7 @@ public class EventService {
         event.setTitle(dto.getTitle());
         event.setDescription(dto.getDescription());
         event.setPlace(dto.getPlace());
-        event.setDate_time(dto.getDate_time());
+        event.setCreatedAt(dto.getCreatedAt());
         event.setCapacity(dto.getCapacity());
 
         Event saved = eventRepository.save(event);
@@ -48,7 +48,7 @@ public class EventService {
         result.setTitle(saved.getTitle());
         result.setDescription(saved.getDescription());
         result.setPlace(saved.getPlace());
-        result.setDate_time(saved.getDate_time());
+        result.setCreatedAt(saved.getCreatedAt());
         result.setCapacity(saved.getCapacity());
 
         return result;
@@ -69,7 +69,7 @@ public class EventService {
         e.setTitle(dto.getTitle());
         e.setDescription(dto.getDescription());
         e.setPlace(dto.getPlace());
-        e.setDate_time(dto.getDate_time());
+        e.setCreatedAt(dto.getCreatedAt());
         e.setCapacity(dto.getCapacity());
 
         Event saved = eventRepository.save(e);
@@ -79,7 +79,7 @@ public class EventService {
         result.setTitle(saved.getTitle());
         result.setDescription(saved.getDescription());
         result.setPlace(saved.getPlace());
-        result.setDate_time(saved.getDate_time());
+        result.setCreatedAt(saved.getCreatedAt());
         result.setCapacity(saved.getCapacity());
 
         return result;
