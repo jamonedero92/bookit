@@ -1,9 +1,5 @@
-package com.jamonedero92.bookit.DTO;
+package com.jamonedero92.bookit.dto;
 
-
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -12,18 +8,18 @@ public class EventDTO {
     private String title;
     private String description;
     private String place;
-    private LocalDateTime createdAt;
+    private LocalDateTime dateTime;
     private Integer capacity;
 
     public EventDTO() {
     }
 
-    public EventDTO(long id, String title, String description, String place, LocalDateTime createdAt, Integer capacity) {
+    public EventDTO(long id, String title, String description, String place, LocalDateTime dateTime, Integer capacity) {
         Id = id;
         this.title = title;
         this.description = description;
         this.place = place;
-        this.createdAt = createdAt;
+        this.dateTime = dateTime;
         this.capacity = capacity;
     }
 
@@ -59,12 +55,12 @@ public class EventDTO {
         this.place = place;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Integer getCapacity() {

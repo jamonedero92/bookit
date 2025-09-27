@@ -1,8 +1,6 @@
 package com.jamonedero92.bookit.controller;
 
-import com.jamonedero92.bookit.DTO.EventDTO;
-import com.jamonedero92.bookit.entity.Event;
-import com.jamonedero92.bookit.repository.EventRepository;
+import com.jamonedero92.bookit.dto.EventDTO;
 import com.jamonedero92.bookit.service.EventService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

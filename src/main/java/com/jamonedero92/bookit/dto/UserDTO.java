@@ -1,11 +1,4 @@
-package com.jamonedero92.bookit.DTO;
-
-import com.jamonedero92.bookit.entity.Booking;
-import com.jamonedero92.bookit.entity.Role;
-import jakarta.persistence.*;
-
-import java.util.List;
-import java.util.Set;
+package com.jamonedero92.bookit.dto;
 
 public class UserDTO {
 

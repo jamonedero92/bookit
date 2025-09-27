@@ -1,4 +1,4 @@
-package com.jamonedero92.bookit.DTO;
+package com.jamonedero92.bookit.dto;
 
 
 import jakarta.validation.constraints.*;

@@ -1,16 +1,14 @@
 package com.jamonedero92.bookit.service;
 
-import com.jamonedero92.bookit.DTO.EventDTO;
+import com.jamonedero92.bookit.dto.EventDTO;
 import com.jamonedero92.bookit.entity.Event;
 import com.jamonedero92.bookit.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EventService {
@@ -23,7 +21,7 @@ public class EventService {
         dto.setTitle(e.getTitle());
         dto.setDescription(e.getDescription());
         dto.setPlace(e.getPlace());
-        dto.setCreatedAt(e.getCreatedAt());
+        dto.setDateTime(e.getDateTime());
         dto.setCapacity(e.getCapacity());
         return dto;
     }
@@ -38,7 +36,7 @@ public class EventService {
         event.setTitle(dto.getTitle());
         event.setDescription(dto.getDescription());
         event.setPlace(dto.getPlace());
-        event.setCreatedAt(dto.getCreatedAt());
+        event.setDateTime(dto.getDateTime());
         event.setCapacity(dto.getCapacity());
 
         Event saved = eventRepository.save(event);
@@ -48,7 +46,7 @@ public class EventService {
         result.setTitle(saved.getTitle());
         result.setDescription(saved.getDescription());
         result.setPlace(saved.getPlace());
-        result.setCreatedAt(saved.getCreatedAt());
+        result.setDateTime(saved.getDateTime());
         result.setCapacity(saved.getCapacity());
 
         return result;
@@ -69,7 +67,7 @@ public class EventService {
         e.setTitle(dto.getTitle());
         e.setDescription(dto.getDescription());
         e.setPlace(dto.getPlace());
-        e.setCreatedAt(dto.getCreatedAt());
+        e.setDateTime(dto.getDateTime());
         e.setCapacity(dto.getCapacity());
 
         Event saved = eventRepository.save(e);
@@ -79,7 +77,7 @@ public class EventService {
         result.setTitle(saved.getTitle());
         result.setDescription(saved.getDescription());
         result.setPlace(saved.getPlace());
-        result.setCreatedAt(saved.getCreatedAt());
+        result.setDateTime(saved.getDateTime());
         result.setCapacity(saved.getCapacity());
 
         return result;
