@@ -31,9 +31,10 @@ public class User {
     public User() {
     }
 
-    public User(long id, String name, String password, Set<Role> roles, List<Booking> bookings) {
+    public User(long id, String name, String email, String password, Set<Role> roles, List<Booking> bookings) {
         Id = id;
         this.name = name;
+        this.email=email;
         this.password = password;
         this.roles = roles;
         this.bookings = bookings;
@@ -53,6 +54,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
