@@ -32,7 +32,6 @@ public class EventService {
 
     public EventDTO addNewEvent(EventDTO dto) {
         Event event = new Event();
-        //  event.setId(dto.getId());
         event.setTitle(dto.getTitle());
         event.setDescription(dto.getDescription());
         event.setPlace(dto.getPlace());
