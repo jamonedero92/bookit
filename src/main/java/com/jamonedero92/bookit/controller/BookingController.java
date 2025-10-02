@@ -11,22 +11,28 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class BookingController {
 
-    private BookingService bookingService;
+    private final BookingService bookingService;
 
     @Autowired
-    public BookingController(BookingService bookingService){
-        this.bookingService=bookingService;
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
+
+    @GetMapping("bookings/{id}")
+    public ResponseEntity<BookingDTO> retrieveBookingById(@PathVariable long id) {
+        BookingDTO dto = bookingService.getBookingById(id);
+        return ResponseEntity.ok(dto);
     }
 
     @PostMapping("bookings/register")
-    public ResponseEntity<BookingDTO> registerNewBooking(@RequestBody @Valid RegisterBookingDTO registerBookingDTO){
-        BookingDTO dto=bookingService.registerBooking(registerBookingDTO);
+    public ResponseEntity<BookingDTO> registerNewBooking(@RequestBody @Valid RegisterBookingDTO registerBookingDTO) {
+        BookingDTO dto = bookingService.registerBooking(registerBookingDTO);
         return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping("bookings/{id}")
-    public ResponseEntity<Void> deleteBooking(@PathVariable long id){
-       bookingService.deleteBooking(id);
-       return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> deleteBooking(@PathVariable long id) {
+        bookingService.deleteBooking(id);
+        return ResponseEntity.noContent().build();
     }
 }

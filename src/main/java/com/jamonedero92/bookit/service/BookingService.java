@@ -51,20 +51,31 @@ public class BookingService {
 
         Booking saved = bookingRepository.save(booking);
 
-        BookingDTO dto = new BookingDTO();
-        dto.setEventId(saved.getEvent().getId());
-        dto.setEventTitle(saved.getEvent().getTitle());
-        dto.setUserId(saved.getUser().getId());
-        dto.setUserName(saved.getUser().getName());
-        dto.setCreatedAt(saved.getCreatedAt());
-        dto.setID(saved.getID());
-
-        return dto;
+        return bookingToDto(saved);
     }
 
     public void deleteBooking(long id) {
         Booking booking = bookingRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Event not found."));
         bookingRepository.deleteById(booking.getID());
+    }
+
+    public BookingDTO getBookingById(long id) {
+
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Booking not found."));
+
+        return bookingToDto(booking);
+    }
+
+    private BookingDTO bookingToDto(Booking booking) {
+        BookingDTO dto = new BookingDTO();
+        dto.setID(booking.getID());
+        dto.setCreatedAt(booking.getCreatedAt());
+        dto.setUserId(booking.getUser().getId());
+        dto.setUserName(booking.getUser().getName());
+        dto.setEventId(booking.getEvent().getId());
+        dto.setEventTitle(booking.getEvent().getTitle());
+        return dto;
     }
 }
