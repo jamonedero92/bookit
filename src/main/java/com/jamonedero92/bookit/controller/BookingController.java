@@ -6,9 +6,7 @@ import com.jamonedero92.bookit.service.BookingService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BookingController {
@@ -24,5 +22,11 @@ public class BookingController {
     public ResponseEntity<BookingDTO> registerNewBooking(@RequestBody @Valid RegisterBookingDTO registerBookingDTO){
         BookingDTO dto=bookingService.registerBooking(registerBookingDTO);
         return ResponseEntity.ok(dto);
+    }
+
+    @DeleteMapping("bookings/{id}")
+    public ResponseEntity<Void> deleteBooking(@PathVariable long id){
+       bookingService.deleteBooking(id);
+       return ResponseEntity.noContent().build();
     }
 }

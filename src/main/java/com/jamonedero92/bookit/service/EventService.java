@@ -38,6 +38,7 @@ public class EventService {
         event.setDateTime(dto.getDateTime());
         event.setCapacity(dto.getCapacity());
 
+
         Event saved = eventRepository.save(event);
 
         EventDTO result = new EventDTO();

@@ -28,7 +28,7 @@ public class EventController {
         else return ResponseEntity.ok(events);
     }
 
-    @PostMapping("events")
+    @PostMapping("events/register")
     public ResponseEntity<EventDTO> addNewEvent(@RequestBody @Valid EventDTO dto) {
         EventDTO saved = eventService.addNewEvent(dto);
 

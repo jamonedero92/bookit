@@ -41,7 +41,7 @@ public class BookingService {
         if (event.getBookings().size() >= event.getCapacity())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The event is already full.");
 
-        if (bookingRepository.existsByUserIdAndEventId(user.getId(),event.getId()))
+        if (bookingRepository.existsByUserIdAndEventId(user.getId(), event.getId()))
             throw new ResponseStatusException(HttpStatus.CONFLICT, "This event is already booked");
 
         Booking booking = new Booking();
@@ -60,5 +60,11 @@ public class BookingService {
         dto.setID(saved.getID());
 
         return dto;
+    }
+
+    public void deleteBooking(long id) {
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Event not found."));
+        bookingRepository.deleteById(booking.getID());
     }
 }

@@ -21,7 +21,7 @@ public class RegisterEventDTO {
 
     @NotNull(message = "The date cant be null")
     @Future(message = "The date must be in the future")
-    private LocalDateTime createdAt;
+    private LocalDateTime dateTime;
 
     @Min(value = 1, message = "The capacity of the event must be larger than 0")
     @NotNull(message = "The capacity of the event can't be null")
@@ -30,12 +30,12 @@ public class RegisterEventDTO {
     public RegisterEventDTO() {
     }
 
-    public RegisterEventDTO(String title, String description, String place, LocalDateTime createdAt, Integer capacity) {
+    public RegisterEventDTO(String title, String description, String place, LocalDateTime dateTime, Integer capacity) {
         this.title = title;
         this.description = description;
         this.place = place;
-        this.createdAt = createdAt;
         this.capacity = capacity;
+        this.dateTime=dateTime;
     }
 
     public String getTitle() {
@@ -62,12 +62,16 @@ public class RegisterEventDTO {
         this.place = place;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 
     public int getCapacity() {

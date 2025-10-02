@@ -1,6 +1,7 @@
 package com.jamonedero92.bookit.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,10 +27,8 @@ public class Event {
     @Column(nullable = false)
     private int capacity;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Booking> bookings;
-
-
 
 
     public Event() {
